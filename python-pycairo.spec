@@ -2,22 +2,24 @@
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	0.1.3
+Version:	0.1.4
 Release:	1
-License:	BSD-like
+License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/snapshots/%{pname}-%{version}.tar.gz
-# Source0-md5:	7e149a027dfa31b06e8c4df7f0087db9
+# Source0-md5:	ffa6746828745641adf96964d02b7cc0
 URL:		http://cairographics.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 0.2.0
+BuildRequires:	libsvg-cairo-devel >= 0.1.4
 BuildRequires:	libtool
 BuildRequires:	python >= 2.2
 BuildRequires:	python-numpy-devel
 BuildRequires:	python-pygtk-devel
 %pyrequires_eq	python-libs
 Requires:	cairo >= 0.2.0
+Requires:	libsvg-cairo >= 0.1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,7 +62,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}
 cp -ar examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 mv $RPM_BUILD_ROOT%{py_sitescriptdir}/cairo/* $RPM_BUILD_ROOT%{py_sitedir}/cairo
-rm $RPM_BUILD_ROOT%{py_sitedir}/cairo/*{.la,.py}
+rm $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.{la,py}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog* NEWS README
+%doc AUTHORS COPYING ChangeLog NEWS NOTES README
 %dir %{py_sitedir}/cairo
 %attr(755,root,root) %{py_sitedir}/cairo/*.so
 %{py_sitedir}/cairo/*.py[oc]
