@@ -2,25 +2,24 @@
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	0.4.0
+Version:	0.5.0
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/snapshots/%{pname}-%{version}.tar.gz
-# Source0-md5:	5e8d7fa07b1f367b47f366811bbe4ac9
-Patch0:		%{name}-ac.patch
+# Source0-md5:	c1b07bfbe1dea192d7a787710b0ad8c0
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
-BuildRequires:	cairo-devel >= 0.4.0
+BuildRequires:	cairo-devel >= 0.5.0
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libsvg-cairo-devel >= 0.1.5
 BuildRequires:	libtool
-BuildRequires:	python >= 2.2
+BuildRequires:	python >= 2.3
 BuildRequires:	python-numpy-devel
 BuildRequires:	python-pygtk-devel >= 1.99.16
 %pyrequires_eq	python-libs
-Requires:	cairo >= 0.4.0
+Requires:	cairo >= 0.5.0
 Requires:	libsvg-cairo >= 0.1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,7 +43,6 @@ Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo.
 
 %prep
 %setup -q -n %{pname}-%{version}
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -79,6 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/cairo
 %attr(755,root,root) %{py_sitedir}/cairo/*.so
 %{py_sitedir}/cairo/*.py[oc]
+
+# what does use it?
+#%{_includedir}/pycairo
+#%{_pkgconfigdir}/pycairo.pc
 
 %files examples
 %defattr(644,root,root,755)
