@@ -3,7 +3,7 @@ Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
 Version:	0.5.1
-Release:	1
+Release:	2
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/snapshots/%{pname}-%{version}.tar.gz
@@ -28,6 +28,18 @@ Python Cairo bindings.
 
 %description -l pl
 Dowi±zania Pythona dla Cairo.
+
+%package devel
+Summary:        Development files for pycairo
+Summary(pl):    Pliki programistyczne pycairo
+Group:          Development/Libraries
+Requires:       %{name} = %{version}-%{release}
+
+%description devel
+Development files for pycairo.
+
+%description -l pl devel
+Pliki programistyczne pycairo.
 
 %package examples
 Summary:        Example programs using Python Cairo bindings
@@ -78,9 +90,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{py_sitedir}/cairo/*.so
 %{py_sitedir}/cairo/*.py[oc]
 
-# what does use it?
-#%{_includedir}/pycairo
-#%{_pkgconfigdir}/pycairo.pc
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/pycairo
+%{_pkgconfigdir}/pycairo.pc
 
 %files examples
 %defattr(644,root,root,755)
