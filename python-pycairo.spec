@@ -1,3 +1,6 @@
+# Conditional build
+%bcond_without	pygtk	# for bootstrap without pygtk
+#
 %define		pname pycairo
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
@@ -17,7 +20,7 @@ BuildRequires:	libsvg-cairo-devel >= 0.1.6
 BuildRequires:	libtool
 BuildRequires:	python >= 2.3
 BuildRequires:	python-numpy-devel
-BuildRequires:	python-pygtk-devel >= 1.99.16
+%{?with_pygtk:BuildRequires:	python-pygtk-devel >= 1.99.16}
 %pyrequires_eq	python-libs
 Requires:	cairo >= 0.9.0
 Requires:	libsvg-cairo >= 0.1.6
