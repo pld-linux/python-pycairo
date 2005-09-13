@@ -1,3 +1,4 @@
+#
 # Conditional build
 %bcond_without	pygtk	# for bootstrap without pygtk
 #
@@ -5,24 +6,24 @@
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	0.9.0
+Version:	1.0.0
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
-Source0:	http://cairographics.org/snapshots/%{pname}-%{version}.tar.gz
-# Source0-md5:	a01c9c34bcb15e89fcea03c324158422
+Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
+# Source0-md5:	e08bfeeed97414bec4e060dd5c16a396
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake
-BuildRequires:	cairo-devel >= 0.9.0
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	automake >= 1:1.7
+BuildRequires:	cairo-devel >= 1.0.0
+BuildRequires:	gtk+2-devel >= 2:2.2.0
 BuildRequires:	libsvg-cairo-devel >= 0.1.6
 BuildRequires:	libtool
 BuildRequires:	python >= 2.3
 BuildRequires:	python-numpy-devel
-%{?with_pygtk:BuildRequires:	python-pygtk-devel >= 1.99.16}
+%{?with_pygtk:BuildRequires:	python-pygtk-devel >= 2.2.0}
 %pyrequires_eq	python-libs
-Requires:	cairo >= 0.9.0
+Requires:	cairo >= 1.0.0
 Requires:	libsvg-cairo >= 0.1.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
