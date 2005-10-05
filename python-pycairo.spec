@@ -22,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	python >= 2.3
 BuildRequires:	python-numpy-devel
 %{?with_pygtk:BuildRequires:	python-pygtk-devel >= 2.2.0}
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
 Requires:	cairo >= 1.0.0
 Requires:	libsvg-cairo >= 0.1.6
