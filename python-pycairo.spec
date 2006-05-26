@@ -43,7 +43,7 @@ Requires:       %{name} = %{version}-%{release}
 %description devel
 Development files for pycairo.
 
-%description -l pl devel
+%description devel -l pl
 Pliki programistyczne pycairo.
 
 %package examples
@@ -55,7 +55,7 @@ Requires:       %{name} = %{version}-%{release}
 %description examples
 Example programs using Python Cairo bindings.
 
-%description -l pl examples
+%description examples -l pl
 Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo.
 
 %prep
