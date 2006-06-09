@@ -35,10 +35,10 @@ Python Cairo bindings.
 Dowi±zania Pythona dla Cairo.
 
 %package devel
-Summary:        Development files for pycairo
-Summary(pl):    Pliki programistyczne pycairo
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Summary:	Development files for pycairo
+Summary(pl):	Pliki programistyczne pycairo
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Development files for pycairo.
@@ -47,10 +47,10 @@ Development files for pycairo.
 Pliki programistyczne pycairo.
 
 %package examples
-Summary:        Example programs using Python Cairo bindings
-Summary(pl):    Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo
-Group:          Libraries/Python
-Requires:       %{name} = %{version}-%{release}
+Summary:	Example programs using Python Cairo bindings
+Summary(pl):	Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo
+Group:		Libraries/Python
+Requires:	%{name} = %{version}-%{release}
 
 %description examples
 Example programs using Python Cairo bindings.
