@@ -1,7 +1,9 @@
 #
-# Conditional build
-%bcond_without	pygtk	# for bootstrap without pygtk
-#
+# TODO:
+# - fix python includes in configure.ac
+# conftest.c:26:20: error: Python.h: No such file or directory
+# conftest.c:28:33: error: Numeric/arrayobject.h: No such file or directory
+# 
 %define		pname pycairo
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
@@ -21,7 +23,6 @@ BuildRequires:	libsvg-cairo-devel >= 0.1.6
 BuildRequires:	libtool
 BuildRequires:	python >= 1:2.3
 BuildRequires:	python-numpy-devel
-%{?with_pygtk:BuildRequires:	python-pygtk-devel >= 2.2.0}
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
 Requires:	cairo >= 1.1.6
