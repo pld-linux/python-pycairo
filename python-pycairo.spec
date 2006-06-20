@@ -63,6 +63,7 @@ Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo.
 %setup -q -n %{pname}-%{version}
 
 %build
+export CPPFLAGS='-I/usr/include/python2.4'
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
