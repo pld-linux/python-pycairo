@@ -1,19 +1,14 @@
-#
-# TODO:
-# - fix python includes in configure.ac
-# conftest.c:26:20: error: Python.h: No such file or directory
-# conftest.c:28:33: error: Numeric/arrayobject.h: No such file or directory
-# 
 %define		pname pycairo
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
 Version:	1.1.6
-Release:	2
+Release:	3
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/snapshots/%{pname}-%{version}.tar.gz
 # Source0-md5:	39b3d60774c90f2d431f41faf28ec27f
+Patch0:		%{name}-new_API.patch
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
@@ -61,6 +56,7 @@ Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo.
 
 %prep
 %setup -q -n %{pname}-%{version}
+%patch0 -p1
 
 %build
 export CPPFLAGS='-I/usr/include/python2.4'
