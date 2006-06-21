@@ -1,30 +1,26 @@
-#
-# Conditional build
-%bcond_without	pygtk	# for bootstrap without pygtk
-#
 %define		pname pycairo
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	1.0.2
-Release:	2
+Version:	1.1.6
+Release:	3
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
-Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	5bb6a202ebc3990712bced1da6dfb7a8
+Source0:	http://cairographics.org/snapshots/%{pname}-%{version}.tar.gz
+# Source0-md5:	39b3d60774c90f2d431f41faf28ec27f
+Patch0:		%{name}-new_API.patch
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake >= 1:1.7
-BuildRequires:	cairo-devel >= 1.0.0
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	cairo-devel >= 1.1.6
 BuildRequires:	gtk+2-devel >= 2:2.2.0
 BuildRequires:	libsvg-cairo-devel >= 0.1.6
 BuildRequires:	libtool
-BuildRequires:	python >= 2.3
+BuildRequires:	python >= 1:2.3
 BuildRequires:	python-numpy-devel
-%{?with_pygtk:BuildRequires:	python-pygtk-devel >= 2.2.0}
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.0.0
+Requires:	cairo >= 1.1.6
 Requires:	libsvg-cairo >= 0.1.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,10 +31,10 @@ Python Cairo bindings.
 Dowi±zania Pythona dla Cairo.
 
 %package devel
-Summary:	Development files for pycairo
-Summary(pl):	Pliki programistyczne pycairo
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Summary:        Development files for pycairo
+Summary(pl):    Pliki programistyczne pycairo
+Group:          Development/Libraries
+Requires:       %{name} = %{version}-%{release}
 
 %description devel
 Development files for pycairo.
@@ -47,10 +43,10 @@ Development files for pycairo.
 Pliki programistyczne pycairo.
 
 %package examples
-Summary:	Example programs using Python Cairo bindings
-Summary(pl):	Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo
-Group:		Libraries/Python
-Requires:	%{name} = %{version}-%{release}
+Summary:        Example programs using Python Cairo bindings
+Summary(pl):    Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo
+Group:          Libraries/Python
+Requires:       %{name} = %{version}-%{release}
 
 %description examples
 Example programs using Python Cairo bindings.
@@ -60,8 +56,10 @@ Przyk³adowe programy w Pythonie u¿ywaj±ce Cairo.
 
 %prep
 %setup -q -n %{pname}-%{version}
+%patch0 -p1
 
 %build
+export CPPFLAGS='-I/usr/include/python2.4'
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
