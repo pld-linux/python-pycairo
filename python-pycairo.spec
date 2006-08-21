@@ -2,25 +2,23 @@
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	1.2.0
+Version:	1.2.2
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	ab531e02fda56a9d6b2b65153fda65f6
+# Source0-md5:	83a2e06d9fc3530753701d580a18087e
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	cairo-devel >= 1.2.0
+BuildRequires:	cairo-devel >= 1.2.2
 BuildRequires:	gtk+2-devel >= 2:2.2.0
-BuildRequires:	libsvg-cairo-devel >= 0.1.6
 BuildRequires:	libtool
 BuildRequires:	python >= 1:2.3
 BuildRequires:	python-Numeric-devel
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.2.0
-Requires:	libsvg-cairo >= 0.1.6
+Requires:	cairo >= 1.2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
