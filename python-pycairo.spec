@@ -14,7 +14,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.2.2
 BuildRequires:	gtk+2-devel >= 2:2.2.0
 BuildRequires:	libtool
-BuildRequires:	python >= 1:2.5
+BuildRequires:	python >= 1:2.3
 BuildRequires:	python-Numeric-devel
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
