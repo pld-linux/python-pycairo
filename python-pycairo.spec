@@ -1,6 +1,6 @@
 %define		pname pycairo
-Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
+Summary:	Python Cairo bindings
 Name:		python-%{pname}
 Version:	1.2.2
 Release:	2
@@ -71,7 +71,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp -ar examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.{la,py}
 
