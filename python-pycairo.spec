@@ -1,6 +1,6 @@
 %define		pname pycairo
-Summary:	Dowi±zania Pythona dla Cairo
 Summary:	Python Cairo bindings
+Summary(pl):	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
 Version:	1.2.6
 Release:	1
