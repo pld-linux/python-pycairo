@@ -1,6 +1,6 @@
 %define		pname pycairo
 Summary:	Python Cairo bindings
-Summary(pl.UTF-8):   Dowiązania Pythona dla Cairo
+Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
 Name:		python-%{pname}
 Version:	1.2.6
 Release:	1
@@ -29,7 +29,7 @@ Dowiązania Pythona dla Cairo.
 
 %package devel
 Summary:	Development files for pycairo
-Summary(pl.UTF-8):   Pliki programistyczne pycairo
+Summary(pl.UTF-8):	Pliki programistyczne pycairo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -41,7 +41,7 @@ Pliki programistyczne pycairo.
 
 %package examples
 Summary:	Example programs using Python Cairo bindings
-Summary(pl.UTF-8):   Przykładowe programy w Pythonie używające Cairo
+Summary(pl.UTF-8):	Przykładowe programy w Pythonie używające Cairo
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 
