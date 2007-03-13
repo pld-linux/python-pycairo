@@ -1,31 +1,27 @@
 #
 # Conditional build
-%bcond_without	pygtk	# for bootstrap without pygtk
+%bcond_without	numpy
 #
 %define		pname pycairo
 Summary:	Python Cairo bindings
 Summary:	Dowi±zania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	1.0.2
-Release:	2
+Version:	1.2.6
+Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	5bb6a202ebc3990712bced1da6dfb7a8
+# Source0-md5:	166b04c4800c01aba1a6c8b14e87e0bc
 URL:		http://cairographics.org/
-BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake >= 1:1.7
-BuildRequires:	cairo-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.2.0
-BuildRequires:	libsvg-cairo-devel >= 0.1.6
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	cairo-devel >= 1.2.6
 BuildRequires:	libtool
-BuildRequires:	python >= 2.3
-BuildRequires:	python-numpy-devel
-%{?with_pygtk:BuildRequires:	python-pygtk-devel >= 2.2.0}
+BuildRequires:	python-devel >= 2.3
+%{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.0.0
-Requires:	libsvg-cairo >= 0.1.6
+Requires:	cairo >= 1.2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -77,7 +73,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp -ar examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.{la,py}
 
