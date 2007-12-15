@@ -2,23 +2,23 @@
 Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	1.4.0
+Version:	1.4.12
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	e26e77919b606113f565d70036c1f504
+# Source0-md5:	c63199d35b1e1d3c5133509f315f70d7
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	cairo-devel >= 1.4.0
+BuildRequires:	cairo-devel >= 1.4.12
 BuildRequires:	libtool
-BuildRequires:	python >= 1:2.3
+BuildRequires:	python >= 1:2.4
 # for tests only
 #BuildRequires:	python-numpy
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.4.0
+Requires:	cairo >= 1.4.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,7 +32,7 @@ Summary:	Development files for pycairo
 Summary(pl.UTF-8):	Pliki programistyczne pycairo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.4.0
+Requires:	cairo-devel >= 1.4.12
 
 %description devel
 Development files for pycairo.
@@ -84,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS NOTES README
+%doc AUTHORS COPYING ChangeLog NEWS README
 %dir %{py_sitedir}/cairo
 %attr(755,root,root) %{py_sitedir}/cairo/_cairo.so
 %{py_sitedir}/cairo/__init__.py[co]
