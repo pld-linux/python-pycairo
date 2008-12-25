@@ -2,23 +2,23 @@
 Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	1.6.4
-Release:	2
+Version:	1.8.0
+Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	2c3aa21e6e610321498f9f81f7b625df
+# Source0-md5:	847f5377c32228a656819f5bd18eb6b4
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	cairo-devel >= 1.6.4
+BuildRequires:	cairo-devel >= 1.8.0
 BuildRequires:	libtool
 BuildRequires:	python >= 1:2.5
 # for tests only
 #BuildRequires:	python-numpy
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.6.4
+Requires:	cairo >= 1.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,7 +32,7 @@ Summary:	Development files for pycairo
 Summary(pl.UTF-8):	Pliki programistyczne pycairo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.6.4
+Requires:	cairo-devel >= 1.8.0
 
 %description devel
 Development files for pycairo.
