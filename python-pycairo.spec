@@ -2,12 +2,12 @@
 Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
 Name:		python-%{pname}
-Version:	1.8.0
+Version:	1.8.2
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	847f5377c32228a656819f5bd18eb6b4
+# Source0-md5:	bbfc0c2fef08dfb0c5b8baa5f0b67a87
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
