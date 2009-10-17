@@ -3,7 +3,7 @@ Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
 Name:		python-%{pname}
 Version:	1.8.8
-Release:	1
+Release:	2
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
@@ -84,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc AUTHORS COPYING NEWS README
 %dir %{py_sitedir}/cairo
 %attr(755,root,root) %{py_sitedir}/cairo/_cairo.so
 %{py_sitedir}/cairo/__init__.py[co]
