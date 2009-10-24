@@ -13,7 +13,7 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.8.0
 BuildRequires:	libtool
-BuildRequires:	python >= 1:2.5
+BuildRequires:	python >= 1:2.6
 # for tests only
 #BuildRequires:	python-numpy
 BuildRequires:	rpm-pythonprov
