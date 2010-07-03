@@ -1,26 +1,27 @@
-%define		pname pycairo
 Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
-Name:		python-%{pname}
-Version:	1.8.8
-Release:	2
+Name:		python-pycairo
+Version:	1.8.10
+Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
-Source0:	http://cairographics.org/releases/%{pname}-%{version}.tar.gz
-# Source0-md5:	054da6c125cb427a003f5fd6c54f853e
+Source0:	http://cairographics.org/releases/py2cairo-%{version}.tar.gz
+# Source0-md5:	87421a6a70304120555ba7ba238f3dc3
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.9
-BuildRequires:	cairo-devel >= 1.8.0
-BuildRequires:	libtool
+BuildRequires:	automake >= 1:1.9.6
+BuildRequires:	cairo-devel >= 1.8.10
+BuildRequires:	libtool >= 2:1.4
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel
 # for tests only
 #BuildRequires:	python-numpy
+# not release yet
+#BuildRequires:	python-xpyb >= 1.3
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.8.0
+Requires:	cairo >= 1.8.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +35,7 @@ Summary:	Development files for pycairo
 Summary(pl.UTF-8):	Pliki programistyczne pycairo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.8.0
+Requires:	cairo-devel >= 1.8.10
 
 %description devel
 Development files for pycairo.
@@ -55,7 +56,7 @@ Example programs using Python Cairo bindings.
 Przykładowe programy w Pythonie używające Cairo.
 
 %prep
-%setup -q -n %{pname}-%{version}
+%setup -q -n pycairo-%{version}
 
 %build
 %{__libtoolize}
