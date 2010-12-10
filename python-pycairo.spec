@@ -1,6 +1,7 @@
+%define		module	pycairo
 Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
-Name:		python-pycairo
+Name:		python-%{module}
 Version:	1.8.10
 Release:	3
 License:	LGPL v2.1 or MPL v1.1
@@ -56,7 +57,7 @@ Example programs using Python Cairo bindings.
 Przykładowe programy w Pythonie używające Cairo.
 
 %prep
-%setup -q -n pycairo-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
 %{__libtoolize}
@@ -77,7 +78,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}
 
 cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-rm $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.{la,py}
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.{la,py}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
