@@ -2,27 +2,26 @@
 Summary:	Python Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona dla Cairo
 Name:		python-%{module}
-Version:	1.10.0
-Release:	5
+Version:	1.16.3
+Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries
-Source0:	http://cairographics.org/releases/py2cairo-%{version}.tar.bz2
-# Source0-md5:	20337132c4ab06c1146ad384d55372c5
+Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/%{module}-%{version}.tar.gz
+# Source0-md5:	d2a115037ccd128219f43d5ed3df7926
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9.6
-BuildRequires:	cairo-devel >= 1.10.0
+BuildRequires:	cairo-devel >= 1.13.1
 BuildRequires:	libtool >= 2:1.4
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel
 # for tests only
 #BuildRequires:	python-numpy
-# not release yet
-#BuildRequires:	python-xpyb >= 1.3
+BuildRequires:	python-xpyb-devel >= 1.3
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	cairo >= 1.10.0
+Requires:	cairo >= 1.13.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +35,7 @@ Summary:	Development files for pycairo
 Summary(pl.UTF-8):	Pliki programistyczne pycairo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.10.0
+Requires:	cairo-devel >= 1.13.1
 
 %description devel
 Development files for pycairo.
@@ -57,41 +56,36 @@ Example programs using Python Cairo bindings.
 Przykładowe programy w Pythonie używające Cairo.
 
 %prep
-%setup -q -n py2cairo-%{version}
+%setup -q -n pycairo-%{version}
+
+%ifarch x32
+%{__sed} -i -e 's/lib64/libx32/g' setup.py
+%endif
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
-
-%{__make}
+%py_build --enable-xpyb
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%py_install
 
 cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.{la,py}
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/cairo/*.py
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING NEWS README
+%doc COPYING NEWS README.rst
 %dir %{py_sitedir}/cairo
 %attr(755,root,root) %{py_sitedir}/cairo/_cairo.so
-%{py_sitedir}/cairo/__init__.py[co]
+%{py_sitedir}/cairo/__init__.py[coi]
+%{py_sitedir}/cairo/include
+%{py_sitedir}/pycairo-*-py2.7.egg-info
 
 %files devel
 %defattr(644,root,root,755)
