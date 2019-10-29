@@ -10,11 +10,12 @@ Summary:	Python 2 Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona 2 dla Cairo
 Name:		python-%{module}
 Version:	1.16.3
-Release:	3
+Release:	4
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries/Python
 Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/%{module}-%{version}.tar.gz
 # Source0-md5:	d2a115037ccd128219f43d5ed3df7926
+Patch0:		python3.8.patch
 URL:		http://cairographics.org/
 BuildRequires:	cairo-devel >= 1.13.1
 BuildRequires:	pkgconfig
@@ -125,6 +126,7 @@ Przykładowe programy w Pythonie używające Cairo.
 
 %prep
 %setup -q -n pycairo-%{version}
+%patch0 -p1
 
 %build
 %if %{with python2}
