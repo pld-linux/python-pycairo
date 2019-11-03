@@ -10,7 +10,7 @@ Summary:	Python 2 Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona 2 dla Cairo
 Name:		python-%{module}
 Version:	1.16.3
-Release:	4
+Release:	5
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries/Python
 Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/%{module}-%{version}.tar.gz
