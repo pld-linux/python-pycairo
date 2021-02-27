@@ -152,7 +152,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}
 %py_postclean
 %endif
 
-%if %{with python2}
+%if %{with python3}
 %py3_install
 %endif
 
@@ -171,13 +171,13 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/cairo/__init__.pyi
 %{py_sitedir}/cairo/include
 %{py_sitedir}/pycairo-%{version}-py*.egg-info
-%endif
 
 %files devel
 %defattr(644,root,root,755)
 %dir %{_includedir}/pycairo
 %{_includedir}/pycairo/pycairo.h
 %{_pkgconfigdir}/pycairo.pc
+%endif
 
 %if %{with python3}
 %files -n python3-%{module}
