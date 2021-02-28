@@ -99,9 +99,7 @@ Pliki programistyczne pycairo dla Pythona 3.
 Summary:	API documentation for Python Cairo bindings
 Summary(pl.UTF-8):	Dokumentacja API dla wiązań Pythona do Cairo
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for Python Cairo bindings.
@@ -114,9 +112,7 @@ Summary:	Example programs using Python Cairo bindings
 Summary(pl.UTF-8):	Przykładowe programy w Pythonie używające Cairo
 Group:		Libraries/Python
 Obsoletes:	python3-pycairo-devel
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description examples
 Example programs using Python Cairo bindings.
