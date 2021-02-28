@@ -43,6 +43,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with doc}
 BuildRequires:	python-Sphinx
+BuildRequires:	python-sphinx_rtd_theme
 %endif
 Requires:	python-libs >= 1:2.7
 Requires:	cairo >= 1.13.1
