@@ -1,4 +1,6 @@
 #
+# TODO: versions 1.19.0+ support only python 3
+#
 # Conditional build:
 %bcond_without	python2	# CPython 2.x module
 %bcond_without	python3	# CPython 3.x module
@@ -9,13 +11,12 @@
 Summary:	Python 2 Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona 2 dla Cairo
 Name:		python-%{module}
-Version:	1.16.3
-Release:	7
+Version:	1.18.2
+Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries/Python
 Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/%{module}-%{version}.tar.gz
-# Source0-md5:	d2a115037ccd128219f43d5ed3df7926
-Patch0:		python3.8.patch
+# Source0-md5:	be2ba51f234270dec340f28f1695a95e
 URL:		http://cairographics.org/
 BuildRequires:	cairo-devel >= 1.13.1
 BuildRequires:	pkgconfig
@@ -123,7 +124,6 @@ Przykładowe programy w Pythonie używające Cairo.
 
 %prep
 %setup -q -n pycairo-%{version}
-%patch0 -p1
 
 %build
 %if %{with python2}
@@ -167,6 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/cairo/__init__.py[co]
 %{py_sitedir}/cairo/__init__.pyi
 %{py_sitedir}/cairo/include
+%{py_sitedir}/cairo/py.typed
 %{py_sitedir}/pycairo-%{version}-py*.egg-info
 
 %files devel
@@ -186,6 +187,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py3_sitedir}/cairo/__init__.pyi
 %{py3_sitedir}/cairo/__pycache__
 %{py3_sitedir}/cairo/include
+%{py3_sitedir}/cairo/py.typed
 %{py3_sitedir}/pycairo-%{version}-py*.egg-info
 
 %files -n python3-%{module}-devel
