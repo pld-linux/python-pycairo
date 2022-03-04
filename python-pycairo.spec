@@ -15,9 +15,10 @@ Version:	1.18.2
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries/Python
+#Source0Download: https://github.com/pygobject/pycairo/releases
 Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/%{module}-%{version}.tar.gz
 # Source0-md5:	be2ba51f234270dec340f28f1695a95e
-URL:		http://cairographics.org/
+URL:		https://www.cairographics.org/
 BuildRequires:	cairo-devel >= 1.13.1
 BuildRequires:	pkgconfig
 %if %{with python2}
@@ -32,19 +33,20 @@ BuildRequires:	python-pytest
 %endif
 %endif
 %if %{with python3}
-BuildRequires:	python3 >= 1:3.3
-BuildRequires:	python3-devel >= 1:3.3
+BuildRequires:	python3 >= 1:3.4
+BuildRequires:	python3-devel >= 1:3.4
 %if %{with tests}
 BuildRequires:	python3-hypothesis
 BuildRequires:	python3-numpy
 BuildRequires:	python3-pytest
 %endif
 %endif
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with doc}
-BuildRequires:	python-Sphinx
-BuildRequires:	python-sphinx_rtd_theme
+BuildRequires:	python3-Sphinx
+BuildRequires:	python3-sphinx_rtd_theme
 %endif
 Requires:	python-libs >= 1:2.7
 Requires:	cairo >= 1.13.1
@@ -75,7 +77,7 @@ Summary:	Python 3 Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona 3 dla Cairo
 Group:		Libraries/Python
 Requires:	cairo >= 1.13.1
-Requires:	python3-libs >= 1:3.3
+Requires:	python3-libs >= 1:3.4
 
 %description -n python3-%{module}
 Python 3 Cairo bindings.
@@ -89,7 +91,7 @@ Summary(pl.UTF-8):	Pliki programistyczne pycairo dla Pythona 3
 Group:		Development/Libraries
 Requires:	cairo-devel >= 1.13.1
 Requires:	python3-%{module} = %{version}-%{release}
-Requires:	python3-devel >= 1:3.3
+Requires:	python3-devel >= 1:3.4
 
 %description -n python3-%{module}-devel
 Development files for Python 3 pycairo.
@@ -113,7 +115,7 @@ Dokumentacja API dla wiązań Pythona do Cairo.
 Summary:	Example programs using Python Cairo bindings
 Summary(pl.UTF-8):	Przykładowe programy w Pythonie używające Cairo
 Group:		Libraries/Python
-Obsoletes:	python3-pycairo-devel
+Obsoletes:	python3-pycairo-examples < 1.16.3-3
 BuildArch:	noarch
 
 %description examples
