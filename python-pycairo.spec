@@ -1,9 +1,7 @@
 #
-# TODO: versions 1.19.0+ support only python 3
-#
 # Conditional build:
 %bcond_without	python2	# CPython 2.x module
-%bcond_without	python3	# CPython 3.x module
+%bcond_with	python3	# CPython 3.x module (built from python3-pycairo.spec)
 %bcond_without	doc	# Sphinx documentation
 %bcond_without	tests	# unit tests
 
@@ -11,6 +9,7 @@
 Summary:	Python 2 Cairo bindings
 Summary(pl.UTF-8):	Dowiązania Pythona 2 dla Cairo
 Name:		python-%{module}
+# keep 1.18.x here for python2 support
 Version:	1.18.2
 Release:	1
 License:	LGPL v2.1 or MPL v1.1
@@ -24,6 +23,7 @@ BuildRequires:	pkgconfig
 %if %{with python2}
 BuildRequires:	python >= 1:2.7
 BuildRequires:	python-devel >= 1:2.7
+BuildRequires:	python-setuptools
 # python2 only for now
 BuildRequires:	python-xpyb-devel >= 1.3
 %if %{with tests}
@@ -35,6 +35,7 @@ BuildRequires:	python-pytest
 %if %{with python3}
 BuildRequires:	python3 >= 1:3.4
 BuildRequires:	python3-devel >= 1:3.4
+BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-hypothesis
 BuildRequires:	python3-numpy
