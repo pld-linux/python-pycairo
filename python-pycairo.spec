@@ -11,7 +11,7 @@ Summary(pl.UTF-8):	Dowiązania Pythona 2 dla Cairo
 Name:		python-%{module}
 # keep 1.18.x here for python2 support
 Version:	1.18.2
-Release:	1
+Release:	2
 License:	LGPL v2.1 or MPL v1.1
 Group:		Libraries/Python
 #Source0Download: https://github.com/pygobject/pycairo/releases
